@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏢 Zeus Corp - Agent Workforce Office</title>
+    <link rel="stylesheet" href="css/office.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="office-container">
+        <!-- Header -->
+        <header class="office-header">
+            <div class="logo">
+                <span class="logo-icon">🏢</span>
+                <div class="logo-text">
+                    <h1>ZEUS CORP</h1>
+                    <p>Agent Workforce Management</p>
+                </div>
+            </div>
+            <div class="header-controls">
+                <button class="btn-add-task" onclick="openTaskModal()">
+                    <span>📋</span> New Project
+                </button>
+                <div class="clock" id="officeClock">09:00:00</div>
+            </div>
+        </header>
+
+        <!-- Main Office Floor -->
+        <main class="office-floor">
+            <!-- Manager's Office -->
+            <div class="room manager-office">
+                <div class="room-label">MANAGER'S OFFICE</div>
+                <div class="desk manager-desk" data-agent="ATHENA">
+                    <div class="desk-surface">
+                        <div class="monitor" id="monitor-ATHENA">
+                            <div class="screen">
+                                <div class="agent-status idle">IDLE</div>
+                            </div>
+                        </div>
+                        <div class="desk-items">
+                            <div class="coffee-mug">☕</div>
+                            <div class="papers">📄</div>
+                        </div>
+                    </div>
+                    <div class="nameplate">
+                        <span class="agent-symbol">⚔️</span>
+                        <span class="agent-name">ATHENA</span>
+                    </div>
+                    <div class="task-bubble hidden" id="task-ATHENA">Planning...</div>
+                </div>
+            </div>
+
+            <!-- Meeting Room -->
+            <div class="room meeting-room">
+                <div class="room-label">MEETING ROOM</div>
+                <div class="meeting-table">
+                    <div class="chair" style="top: 20%; left: 30%">🪑</div>
+                    <div class="chair" style="top: 20%; left: 70%">🪑</div>
+                    <div class="chair" style="top: 80%; left: 50%">🪑</div>
+                    <div class="whiteboard">📝 Project Board</div>
+                </div>
+            </div>
+
+            <!-- Server Room -->
+            <div class="room server-room">
+                <div class="room-label">SERVER ROOM</div>
+                <div class="server-rack">
+                    <div class="server-unit active"></div>
+                    <div class="server-unit active"></div>
+                    <div class="server-unit active"></div>
+                    <div class="server-unit"></div>
+                </div>
+                <div class="blinking-lights">
+                    <span class="light green"></span>
+                    <span class="light green"></span>
+                    <span class="light yellow blink"></span>
+                </div>
+            </div>
+
+            <!-- Agent Desks Row 1 -->
+            <div class="desks-row">
+                <div class="desk" data-agent="ANALYST">
+                    <div class="desk-surface">
+                        <div class="monitor" id="monitor-ANALYST">
+                            <div class="screen">
+                                <div class="agent-status idle">IDLE</div>
+                            </div>
+                        </div>
+                        <div class="desk-items">
+                            <div class="charts">📊</div>
+                        </div>
+                    </div>
+                    <div class="nameplate">
+                        <span class="agent-symbol">📊</span>
+                        <span class="agent-name">ANALYST</span>
+                    </div>
+                    <div class="task-bubble hidden" id="task-ANALYST">Analyzing...</div>
+                </div>
+
+                <div class="desk" data-agent="DEVELOPER">
+                    <div class="desk-surface">
+                        <div class="monitor" id="monitor-DEVELOPER">
+                            <div class="screen">
+                                <div class="agent-status idle">IDLE</div>
+                            </div>
+                        </div>
+                        <div class="desk-items">
+                            <div class="keyboard">⌨️</div>
+                        </div>
+                    </div>
+                    <div class="nameplate">
+                        <span class="agent-symbol">💻</span>
+                        <span class="agent-name">DEVELOPER</span>
+                    </div>
+                    <div class="task-bubble hidden" id="task-DEVELOPER">Developing...</div>
+                </div>
+
+                <div class="desk" data-agent="HEPHAESTUS">
+                    <div class="desk-surface">
+                        <div class="monitor" id="monitor-HEPHAESTUS">
+                            <div class="screen">
+                                <div class="agent-status idle">IDLE</div>
+                            </div>
+                        </div>
+                        <div class="desk-items">
+                            <div class="tools">🔧</div>
+                        </div>
+                    </div>
+                    <div class="nameplate">
+                        <span class="agent-symbol">⚒️</span>
+                        <span class="agent-name">HEPHAESTUS</span>
+                    </div>
+                    <div class="task-bubble hidden" id="task-HEPHAESTUS">Building...</div>
+                </div>
+
+                <div class="desk" data-agent="HERMES">
+                    <div class="desk-surface">
+                        <div class="monitor" id="monitor-HERMES">
+                            <div class="screen">
+                                <div class="agent-status idle">IDLE</div>
+                            </div>
+                        </div>
+                        <div class="desk-items">
+                            <div class="satellite">📡</div>
+                        </div>
+                    </div>
+                    <div class="nameplate">
+                        <span class="agent-symbol">⚡</span>
+                        <span class="agent-name">HERMES</span>
+                    </div>
+                    <div class="task-bubble hidden" id="task-HERMES">Connecting...</div>
+                </div>
+            </div>
+
+            <!-- Agent Desks Row 2 -->
+            <div class="desks-row row-2">
+                <div class="desk" data-agent="APOLLO">
+                    <div class="desk-surface">
+                        <div class="monitor" id="monitor-APOLLO">
+                            <div class="screen">
+                                <div class="agent-status idle">IDLE</div>
+                            </div>
+                        </div>
+                        <div class="desk-items">
+                            <div class="palette">🎨</div>
+                        </div>
+                    </div>
+                    <div class="nameplate">
+                        <span class="agent-symbol">🌟</span>
+                        <span class="agent-name">APOLLO</span>
+                    </div>
+                    <div class="task-bubble hidden" id="task-APOLLO">Designing...</div>
+                </div>
+
+                <div class="desk" data-agent="ARES">
+                    <div class="desk-surface">
+                        <div class="monitor" id="monitor-ARES">
+                            <div class="screen">
+                                <div class="agent-status idle">IDLE</div>
+                            </div>
+                        </div>
+                        <div class="desk-items">
+                            <div class="shield">🛡️</div>
+                        </div>
+                    </div>
+                    <div class="nameplate">
+                        <span class="agent-symbol">🛡️</span>
+                        <span class="agent-name">ARES</span>
+                    </div>
+                    <div class="task-bubble hidden" id="task-ARES">Testing...</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bulletin Board -->
+        <aside class="bulletin-board">
+            <div class="board-header">
+                <span>📌</span> Activity Feed
+            </div>
+            <div class="board-content" id="activityFeed">
+                <div class="activity-item system">
+                    <span class="time">09:00</span>
+                    <span class="msg">🏢 Office opened. All agents ready.</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Break Area & Inbox -->
+        <footer class="office-footer">
+            <div class="break-area">
+                <div class="coffee-station">☕ Coffee Station</div>
+                <div class="plant">🪴</div>
+                <div class="couch">🛋️</div>
+            </div>
+            <div class="inbox" id="projectInbox">
+                <div class="inbox-label">📥 Inbox</div>
+                <div class="inbox-items">
+                    <div class="inbox-item" id="currentProject">
+                        <span class="project-name">No active project</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Task Modal -->
+    <div class="modal hidden" id="taskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📋 New Project Assignment</h2>
+                <button class="close-btn" onclick="closeTaskModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <label>Project Goal:</label>
+                <textarea id="projectGoal" placeholder="e.g., Build a task management API with dashboard..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeTaskModal()">Cancel</button>
+                <button class="btn-submit" onclick="assignProject()">🚀 Assign to Agents</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
